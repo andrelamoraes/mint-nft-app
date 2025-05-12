@@ -52,6 +52,8 @@ export default function Home() {
               <Image
                 src="https://tan-informal-minnow-205.mypinata.cloud/ipfs/bafkreiev3pysrjpjin6sdvvrsk42fzroy2ileclvtvf3j722zk6343hmzm"
                 alt="Colecionável"
+                width={800} 
+                height={600} 
                 style={{
                   maxWidth: '100%',
                   height: 'auto',

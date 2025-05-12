@@ -7,7 +7,15 @@ const nextConfig = {
       });
       return config;
   },
-  
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'tan-informal-minnow-205.mypinata.cloud',
+        pathname: '/ipfs/**',
+      },
+    ],
+  },
   env: {
       API_KEY: process.env.API_KEY,
       PRIVATE_KEY: process.env.PRIVATE_KEY,
