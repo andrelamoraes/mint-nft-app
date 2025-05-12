@@ -28,8 +28,9 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <AccountKitProvider initialState={initialState}>{children}</AccountKitProvider>
+        <ToastContainer style={{position:"absolute", top:"30%" , left: "50%"}} />
       </body>
-      <ToastContainer style={{position:"absolute", top:"30%" , left: "50%"}} />
     </html>
+    
   );
 }
