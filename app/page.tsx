@@ -6,6 +6,7 @@ import { useState } from "react";
 import ABI from '../services/json/abi.json';
 import { useUser } from "@account-kit/react";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 export default function Home() {
   const [minting, setMinting] = useState(false);
@@ -47,7 +48,7 @@ export default function Home() {
                 backgroundColor: '#111', // só pra destacar
               }}
             >
-              <img
+              <Image
                 src="https://tan-informal-minnow-205.mypinata.cloud/ipfs/bafkreiev3pysrjpjin6sdvvrsk42fzroy2ileclvtvf3j722zk6343hmzm"
                 alt="Colecionável"
                 style={{
