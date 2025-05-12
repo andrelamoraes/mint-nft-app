@@ -4,13 +4,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
-import { Providers } from "./providers";
+import { AccountKitProvider } from "@/providers/AccountKitProvider";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Account Kit Quickstart",
-  description: "Account Kit Quickstart NextJS Template",
+  title: "RCH NFT",
+  description: "Claim your RCH NFT",
 };
 
 export default function RootLayout({
@@ -18,18 +20,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Persist state across pages
-  // https://accountkit.alchemy.com/react/ssr#persisting-the-account-state
   const initialState = cookieToInitialState(
     config,
     headers().get("cookie") ?? undefined
   );
-
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={inter.className}>
-        <Providers initialState={initialState}>{children}</Providers>
+        <AccountKitProvider initialState={initialState}>{children}</AccountKitProvider>
       </body>
+      <ToastContainer style={{position:"absolute", top:"30%" , left: "50%"}} />
     </html>
   );
 }
