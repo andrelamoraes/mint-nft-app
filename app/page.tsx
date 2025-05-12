@@ -12,6 +12,7 @@ export default function Home() {
   const [minting, setMinting] = useState(false);
   const [error, setError] = useState("");
   const user = useUser();
+  const btnClass = "bg-[rgba(35,35,36,1)] border text-white text-lg px-9 py-3 rounded-[20px] border-[rgba(228,228,228,1)] border-solid hover:bg-[rgba(50,50,51,1)]";
 
   const provider = new ethers.JsonRpcProvider("https://avax-fuji.g.alchemy.com/v2/SaZA6j8tWVWbSuoWu_O_dFbSvsNs_rQs");
 
@@ -27,7 +28,7 @@ export default function Home() {
       const contract = new ethers.Contract(process.env.CONTRACT_ADDRESS, ABI.abi, signer);
 
       const tx = await contract.publicMint(1, "", {
-        value: 0n,
+        value: BigInt(0),
       });
 
       toast.promise(
@@ -103,7 +104,7 @@ export default function Home() {
         <Cube />
         {user ? (
         <button
-          className="bg-[rgba(35,35,36,1)] border text-white text-lg px-9 py-3 rounded-[20px] border-[rgba(228,228,228,1)] border-solid hover:bg-[rgba(50,50,51,1)]"
+          className={btnClass}
           onClick={handleMint}
           disabled={minting}
         >
